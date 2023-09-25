@@ -3,7 +3,7 @@ My own Game Engine made in C++ and WPF UI. GERLIE stands for Game Engine for Rea
 
 # Progress
 
-## 25Sep 2023
+## 25 Sep 2023
 - At last, I learned how to upload my code to GitHub. I also reworked the entire project because of bad variables I used during the process. Added comprehensive comments.
 
 ## 24 Sep 2023
