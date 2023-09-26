@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel;
+using System.Runtime.Serialization;
 
 namespace GERLIE_WPF.Common
 {
+    [DataContract(IsReference = true)]
     public class View_model_base : INotifyPropertyChanged                                   //The class needed to detect changes with the UI IO. INotifyPropertyChanged is an interface in .NET used to notify the user interface of property changes in an object, enabling automatic updates of UI elements bound to those properties.
     {
         public event PropertyChangedEventHandler PropertyChanged;

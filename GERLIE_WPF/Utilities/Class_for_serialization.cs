@@ -7,7 +7,7 @@ namespace GERLIE_WPF.Utilities
 {
     public static class Class_for_serialization
     {
-        public static void ToFile<T>(T instance, string path)                           //This code defines a method ToFile that takes an object, serializes it into XML format using a DataContractSerializer, and saves it to a file specified by the path parameter.
+        public static void To_file_method<T>(T instance, string path)                           //This code defines a method To_file that takes an object, serializes it into XML format using a DataContractSerializer, and saves it to a file specified by the path parameter.
         {
             try
             {
@@ -18,6 +18,21 @@ namespace GERLIE_WPF.Utilities
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
+            }
+        }
+        internal static T From_file_method<T>(string path)                                      //This code reads and deserializes an object of type T from a file specified by the path and returns it.
+        {
+            try
+            {
+                using var serializer_fstream = new FileStream(path, FileMode.Open);
+                var serializer = new DataContractSerializer(typeof(T));
+                T instance = (T)serializer.ReadObject(serializer_fstream);
+                return instance;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return default(T);
             }
         }
     }

@@ -20,7 +20,7 @@
             </LinearGradientBrush>
         </StackPanel.OpacityMask>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <ListBox Width="195" Height="250" Background="#8f9294" FontFamily="Black Brutal" FontSize="20" ItemsSource="{Binding Projects}" x:Name="projects_list_box" SelectedIndex="0">
+            <ListBox Width="195" Height="250" Background="#8f9294" FontFamily="Black Brutal" FontSize="20" ItemsSource="{Binding Class_for_project_templates}" x:Name="projects_list_box" SelectedIndex="0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
