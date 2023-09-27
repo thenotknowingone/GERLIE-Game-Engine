@@ -32,7 +32,7 @@ namespace GERLIE_WPF.Utilities
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-                return default(T);
+                return default;
             }
         }
     }

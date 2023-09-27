@@ -1,5 +1,4 @@
-﻿using GERLIE_WPF.Common;
-using GERLIE_WPF.Utilities;
+﻿using GERLIE_WPF.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

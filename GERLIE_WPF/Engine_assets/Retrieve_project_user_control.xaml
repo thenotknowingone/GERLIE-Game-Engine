@@ -6,7 +6,10 @@
              xmlns:local="clr-namespace:GERLIE_WPF.Engine_assets"
              mc:Ignorable="d" Width="800"
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
+    <UserControl.DataContext>
+        <local:Class_for_retrieving_projects/>
+    </UserControl.DataContext>
+<StackPanel>
         <StackPanel.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black"/>
@@ -20,7 +23,12 @@
             </LinearGradientBrush>
         </StackPanel.OpacityMask>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <ListBox Width="195" Height="250" Background="#8f9294" FontFamily="Black Brutal" FontSize="20" ItemsSource="{Binding Class_for_project_templates}" x:Name="projects_list_box" SelectedIndex="0">
+            <ListBox Width="195" Height="250" Background="#8f9294" FontFamily="Black Brutal" FontSize="20" ItemsSource="{Binding Projects}" x:Name="projects_list_box" SelectedIndex="0" >
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <EventSetter Event="MouseDoubleClick" Handler="On_list_box_item_Mouse_Double_Click"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -37,7 +45,7 @@
             </Border>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 30, 0, 0 ">
-            <Button Content="Retrieve" Width="96" IsDefault="True" Margin="0, 0, 5, 0 "/>
+            <Button Content="Retrieve" Width="96" IsDefault="True" Margin="0, 0, 5, 0 " Click ="On_retrieve_Button_Click" />
             <Button Content="Exit" Width="96" IsCancel="True"/>
         </StackPanel>   
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 78, 30, 0 ">

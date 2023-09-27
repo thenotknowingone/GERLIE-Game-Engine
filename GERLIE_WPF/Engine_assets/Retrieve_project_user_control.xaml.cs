@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GERLIE_WPF.Engine_assets
 {
@@ -24,5 +13,29 @@ namespace GERLIE_WPF.Engine_assets
         {
             InitializeComponent();
         }
+        private void On_retrieve_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Retrieve_project();
+        }
+        private void On_list_box_item_Mouse_Double_Click(object sender, MouseButtonEventArgs e)
+        {
+            Retrieve_project();
+        }
+        private void Retrieve_project()
+        {
+            var project = Class_for_retrieving_projects.Open(projects_list_box.SelectedItem as Class_for_project_data);
+            bool dialog_result = false;
+            var win = Window.GetWindow(this);
+
+            if (project != null)
+            {
+                dialog_result = true;
+                win.DataContext = project;
+            }
+
+            win.DialogResult = dialog_result;
+            win.Close();
+        }
+
     }
 }

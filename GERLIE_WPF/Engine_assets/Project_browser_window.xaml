@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GERLIE_WPF.Engine_assets"
-        mc:Ignorable="d" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Topmost="True"
+        mc:Ignorable="d" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         Title="How would you like to start?" Height="600" Width="800">
     <Grid Background="#FFD9E0E2">
         <Grid.RowDefinitions>
@@ -12,8 +12,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
-            <ToggleButton Content="Open a Project " x:Name="retrieve_project_button" FontSize="35" FontFamily="Play and Win Demo" BorderBrush="{x:Null}" Foreground="#FF1F222B" Background="{x:Null}"  Click="project_browser_button_Click" IsChecked="True"/>
-            <ToggleButton Content="New Project" x:Name="create_project_button" FontSize="35" FontFamily="Play and Win Demo" Margin="30, 0, 0, 0" BorderBrush="{x:Null}" Foreground="#FF1F222B" Background="{x:Null}" Click="project_browser_button_Click" IsChecked="False"/>
+            <ToggleButton Content="Open a Project " x:Name="retrieve_project_button" FontSize="35" FontFamily="Play and Win Demo" BorderBrush="{x:Null}" Foreground="#FF1F222B" Background="{x:Null}"  Click="project_browser_Button_Click" IsChecked="True"/>
+            <ToggleButton Content="New Project" x:Name="create_project_button" FontSize="35" FontFamily="Play and Win Demo" Margin="30, 0, 0, 0" BorderBrush="{x:Null}" Foreground="#FF1F222B" Background="{x:Null}" Click="project_browser_Button_Click" IsChecked="False"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="1" x:Name="browser_content">
             <local:Retrieve_project_user_control/>
