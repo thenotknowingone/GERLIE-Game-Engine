@@ -4,9 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GERLIE_WPF" 
+        xmlns:editors="clr-namespace:GERLIE_WPF.Editors" 
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
-        Title="GERLIE Game Engine" Height="450" Width="800" Topmost="False">
+        Title="GERLIE Game Engine" Height="1080" Width="1920" Topmost="False">
     <Grid>
-
+        <editors:World_editor_user_control/>
     </Grid>
 </Window>
