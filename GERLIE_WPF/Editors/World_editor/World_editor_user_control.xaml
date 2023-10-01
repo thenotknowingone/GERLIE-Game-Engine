@@ -4,35 +4,71 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GERLIE_WPF.Editors"
-             xmlns:proj="clr-namespace:GERLIE_WPF.Engine_assets"
-             mc:Ignorable="d"
+             xmlns:utl="clr-namespace:GERLIE_WPF.Utilities"
+             mc:Ignorable="d" Focusable="True"
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding Undo_command}" 
+                    Key="Z" 
+                    Modifiers="Ctrl"/>
+        <KeyBinding Command="{Binding Redo_command}" 
+                    Key="Y" 
+                    Modifiers="Ctrl"/>
+        <KeyBinding Command="{Binding Save_command}" 
+                    Key="S" 
+                    Modifiers="Ctrl"/>
+    </UserControl.InputBindings>
     <Grid>
         <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <LinearGradientBrush EndPoint="0.5,1" 
+                                 StartPoint="0.5,0">
                 <GradientStop Color="Black"/>
-                <GradientStop Color="#FF1F222B" Offset="1"/>
+                <GradientStop Color="#FF1F222B" 
+                              Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <GridSplitter Grid.Row="1" Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
-        </Grid>
-        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Left"/>
-        <Grid Grid.Column="1" Margin="5">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <GridSplitter Grid.Row="1" Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
-            <local:Project_layout_user_control/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Undo"
+                    Command="{Binding Undo_command}"/>
+            <Button Content="Redo"
+                    Command="{Binding Redo_command}"
+                    Margin="5, 0, 0, 0"/>
+        </StackPanel> 
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <GridSplitter Grid.Row="1" 
+                              Height="5" 
+                              HorizontalAlignment="Stretch" 
+                              VerticalAlignment="Top"/>
+                <utl:Undo_redo_user_control DataContext="{Binding Undo_Redo}" Grid.Row="1"/>
+            </Grid>
+            <GridSplitter Grid.Column="1" 
+                          Width="5" 
+                          HorizontalAlignment="Left"/>
+            <Grid Grid.Column="1" 
+                  Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <GridSplitter Grid.Row="1" 
+                              Height="5" 
+                              HorizontalAlignment="Stretch" 
+                              VerticalAlignment="Top"/>
+                <local:Project_layout_user_control/>
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>

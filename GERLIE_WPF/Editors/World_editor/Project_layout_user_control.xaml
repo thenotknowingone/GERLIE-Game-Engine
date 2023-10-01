@@ -8,18 +8,29 @@
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type=proj:Class_for_central_data_structure, IsDesignTimeCreatable=True}"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#8f9294">
+    <Grid Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="32"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Content="Add a scene" Width="96" VerticalAlignment="Top" Focusable="False" Grid.Row="0" HorizontalAlignment="Left" Margin="20,6,0,0" Foreground="#1f222b" Background="#f4f3f3"/>
-        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <ItemsControl ItemsSource="{Binding Scene}">
+        <Button Content="Add a scene" 
+                Width="96" VerticalAlignment="Top" 
+                Focusable="False" Grid.Row="0" 
+                HorizontalAlignment="Left" 
+                Margin="20,6,0,0" 
+                Foreground="#1f222b" 
+                Background="#f4f3f3" 
+                Command="{Binding Add_scene_command}"/>
+        <ScrollViewer Grid.Row="1" 
+                      HorizontalScrollBarVisibility="Auto" 
+                      VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding Scene}" >
                 <ItemsControl.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush EndPoint="0.5,1" 
+                                         StartPoint="0.5,0">
                         <GradientStop Color="Black"/>
-                        <GradientStop Color="#FF1F222B" Offset="1"/>
+                        <GradientStop Color="#1f222b" 
+                                      Offset="1"/>
                     </LinearGradientBrush>
                 </ItemsControl.Background>
                 <ItemsControl.ItemsPanel>
@@ -30,12 +41,30 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Expander IsExpanded="{Binding Is_active, Mode=OneWay}">
+                            <Expander.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" 
+                                                     StartPoint="0.5,0">
+                                    <GradientStop Color="#8f9294"/>
+                                    <GradientStop Color="White" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Expander.Background>
                             <Expander.Header>
                                 <Grid>
-                                    <TextBlock Text="{Binding Name}"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Name}" 
+                                                   FontFamily="Black Brutal" 
+                                                   FontSize="20" 
+                                                   VerticalAlignment="Center" 
+                                                   TextAlignment="Center"/>
+                                        <Button Content="Remove" 
+                                                Command="{Binding DataContext.Remove_scene_command, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                CommandParameter="{Binding}" 
+                                                Margin="20" 
+                                                Focusable="False"/>
+                                    </StackPanel>
                                 </Grid>
                             </Expander.Header>
-                            <Border Background="#FFD9E0E2"/>
+                            <Border Height="100"/>
                         </Expander>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

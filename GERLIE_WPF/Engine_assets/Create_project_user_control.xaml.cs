@@ -11,6 +11,12 @@ namespace GERLIE_WPF.Engine_assets
         public Create_project_user_control()
         {
             InitializeComponent();
+
+            Loaded += (s, e) =>
+            {
+                var item = template_list_box.ItemContainerGenerator.ContainerFromIndex(template_list_box.SelectedIndex) as ListBoxItem;                         //Causes the first project on the Main Screen's Retrieve Project option to be pre-selected.
+                item?.Focus();
+            };
         }
 
         private void On_create_Button_Click(object sender, RoutedEventArgs e)
