@@ -5,6 +5,7 @@
 	<Path>{1}</Path>
 	<Scenes>
 		<Class_for_scenes z:Id="i2">
+			<Game_entities xmlns:a="http://schemas.datacontract.org/2004/07/GERLIE_WPF.Components"/>
 			<Is_active>true</Is_active>
 			<Name>Default scene</Name>
 			<Project z:Ref="i1"/>

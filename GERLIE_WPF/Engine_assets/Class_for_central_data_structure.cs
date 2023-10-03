@@ -46,7 +46,7 @@ namespace GERLIE_WPF.Engine_assets
         }
 
         [DataMember (Name  = "Scenes")]
-        private ObservableCollection<Class_for_scenes> _scene = new ObservableCollection<Class_for_scenes> ();
+        private readonly ObservableCollection<Class_for_scenes> _scene = new ObservableCollection<Class_for_scenes> ();
         public ReadOnlyObservableCollection<Class_for_scenes> Scene
         {
             get;
@@ -121,7 +121,7 @@ namespace GERLIE_WPF.Engine_assets
                 Undo_Redo.Add(new Class_for_undo_redo_action(
                 () => Remove_a_scene_internal(new_scene),
                 () => _scene.Insert(scene_index, new_scene),
-                $"Added {new_scene.Name}"));
+                $"Added {new_scene.Name}."));
             });
 
             Remove_scene_command = new Class_for_relay_command<Class_for_scenes>(x =>
@@ -132,7 +132,7 @@ namespace GERLIE_WPF.Engine_assets
                 Undo_Redo.Add(new Class_for_undo_redo_action(
                     () => _scene.Insert(scene_index, x),
                     () => Remove_a_scene_internal(x),
-                    $"Removed {x.Name}"));
+                    $"Removed {x.Name}."));
             }, x => !x.Is_active);
 
             Undo_command = new Class_for_relay_command<object>(x => Undo_Redo.Undo());

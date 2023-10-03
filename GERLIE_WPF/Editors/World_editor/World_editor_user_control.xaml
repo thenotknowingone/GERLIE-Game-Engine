@@ -68,6 +68,7 @@
                               HorizontalAlignment="Stretch" 
                               VerticalAlignment="Top"/>
                 <local:Project_layout_user_control/>
+                <local:Game_entity_user_control Grid.Row="1"/>
             </Grid>
         </Grid>
     </Grid>

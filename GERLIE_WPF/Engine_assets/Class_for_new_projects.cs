@@ -112,8 +112,8 @@ namespace GERLIE_WPF.Engine_assets
             }
         }
 
-        private ObservableCollection<Class_for_project_templates> _project_templates = new ObservableCollection<Class_for_project_templates>(); //Defines a private ObservableCollection of Class_for_project_templates objects named _project_templates and provides a public property Project_templates_getter that exposes a read-only view of this collection as a ReadOnlyObservableCollection.
-        public ReadOnlyObservableCollection<Class_for_project_templates> Project_templates_getter                                               //Defines a private ObservableCollection of Class_for_project_templates objects named _project_templates and provides a public property Project_templates_getter that exposes a read-only view of this collection as a ReadOnlyObservableCollection.
+        private ObservableCollection<Class_for_project_templates> _project_templates = new ObservableCollection<Class_for_project_templates>(); //Defines a private ObservableCollection of Class_for_project_templates objects named _project_templates and provides a public property Project_templates that exposes a read-only view of this collection as a ReadOnlyObservableCollection.
+        public ReadOnlyObservableCollection<Class_for_project_templates> Project_templates                                               //Defines a private ObservableCollection of Class_for_project_templates objects named _project_templates and provides a public property Project_templates that exposes a read-only view of this collection as a ReadOnlyObservableCollection.
         {                                                                                                                                       
             get;
         }
@@ -182,12 +182,10 @@ namespace GERLIE_WPF.Engine_assets
                 Debug.WriteLine(ex.Message);
                 return string.Empty;
             }
-            
         }
-
-        public Class_for_new_projects()                                                                                                         //This code defines a constructor for the Class_for_new_projects class, which initializes the Project_templates_getter property with a read-only view of a private _project_templates collection. It then attempts to find and deserialize Class_for_project_templates objects from files named "template.xml" within a specified directory _template_path, with debugging checks in place, and logs any exceptions.
+        public Class_for_new_projects()                                                                                                         //This code defines a constructor for the Class_for_new_projects class, which initializes the Project_templates property with a read-only view of a private _project_templates collection. It then attempts to find and deserialize Class_for_project_templates objects from files named "template.xml" within a specified directory _template_path, with debugging checks in place, and logs any exceptions.
         {
-            Project_templates_getter = new ReadOnlyObservableCollection<Class_for_project_templates> (_project_templates);
+            Project_templates = new ReadOnlyObservableCollection<Class_for_project_templates> (_project_templates);
             try
             {
                 var assert_template = Directory.GetFiles(_template_path, "template.xml", SearchOption.AllDirectories);
@@ -212,5 +210,4 @@ namespace GERLIE_WPF.Engine_assets
             }
         }
     }
-
 }

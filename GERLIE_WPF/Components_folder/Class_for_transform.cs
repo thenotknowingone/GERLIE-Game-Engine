@@ -7,8 +7,9 @@ namespace GERLIE_WPF.Components_folder
     [DataContract]
     public class Class_for_transform : Class_for_component
     {
-        private Class_for_vector_3 _position;
-        public Class_for_vector_3 Position
+        private Vector3 _position;
+        [DataMember]
+        public Vector3 Position
         {
             get => _position;
             set
@@ -21,8 +22,9 @@ namespace GERLIE_WPF.Components_folder
             }
         }
 
-        private Class_for_vector_3 _rotation;
-        public Class_for_vector_3 Rotation
+        private Vector3 _rotation;
+        [DataMember]
+        public Vector3 Rotation
         {
             get => _rotation;
             set
@@ -35,8 +37,9 @@ namespace GERLIE_WPF.Components_folder
             }
         }
 
-        private Class_for_vector_3 _scale;
-        public Class_for_vector_3 Scale
+        private Vector3 _scale;
+        [DataMember]
+        public Vector3 Scale
         {
             get => _scale;
             set
@@ -48,7 +51,6 @@ namespace GERLIE_WPF.Components_folder
                 }
             }
         }
-        public int 
         public Class_for_transform(Class_for_game_entity owner) : base(owner)
         {
         }

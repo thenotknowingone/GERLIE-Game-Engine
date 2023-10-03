@@ -31,7 +31,7 @@ namespace GERLIE_WPF.Engine_assets
             {
                 dialog_result = true;
                 win.DataContext = project;
-            }
+            } 
 
             win.DialogResult = dialog_result;
             win.Close();

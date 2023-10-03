@@ -57,14 +57,46 @@
                                                    VerticalAlignment="Center" 
                                                    TextAlignment="Center"/>
                                         <Button Content="Remove" 
-                                                Command="{Binding DataContext.Remove_scene_command, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                Command=    "{
+                                                                Binding DataContext.Remove_scene_command, 
+                                                                RelativeSource= 
+                                                                {
+                                                                    RelativeSource 
+                                                                    AncestorType=UserControl
+                                                                }
+                                                             }"
                                                 CommandParameter="{Binding}" 
                                                 Margin="20" 
                                                 Focusable="False"/>
+                                        <Button Content="+"
+                                                Height="20"
+                                                Background="Transparent"
+                                                BorderBrush="Transparent"
+                                                HorizontalContentAlignment="Center"
+                                                IsEnabled="{Binding Is_active}"
+                                                Click="On_add_game_entity_Button_Click"/>
                                     </StackPanel>
                                 </Grid>
                             </Expander.Header>
-                            <Border Height="100"/>
+                            <ListBox ItemsSource="{Binding Game_entities}" 
+                                     IsEnabled="{Binding Is_active}"
+                                     SelectionMode="Extended"
+                                     SelectionChanged="On_game_entity_Selection_Changed">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Name}"/>
+                                            <Button Content="Remove"
+                                                    Height="20"
+                                                    Background="Transparent"
+                                                    BorderBrush="Transparent"
+                                                    HorizontalContentAlignment="Center" 
+                                                    Command="{Binding Parent_scene.Remove_game_entity_command}"
+                                                    CommandParameter="{Binding}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
                         </Expander>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

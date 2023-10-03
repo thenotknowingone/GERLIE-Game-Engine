@@ -3,9 +3,6 @@ using System.Windows;
 
 namespace GERLIE_WPF.Engine_assets
 {
-    /// <summary>
-    /// Interaction logic for Create_project_user_control.xaml
-    /// </summary>
     public partial class Create_project_user_control : UserControl
     {
         public Create_project_user_control()
@@ -18,8 +15,11 @@ namespace GERLIE_WPF.Engine_assets
                 item?.Focus();
             };
         }
-
         private void On_create_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Create_a_project();
+        }
+        private void Create_a_project() 
         {
             var vm = DataContext as Class_for_new_projects;
             var project_path = vm.Create_project(template_list_box.SelectedItem as Class_for_project_templates);

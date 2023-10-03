@@ -18,7 +18,7 @@
             </LinearGradientBrush>
         </StackPanel.Background>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <ListBox Width="195" Height="250" Background="#8f9294" ItemsSource="{Binding Project_templates_getter}" x:Name="template_list_box" SelectedIndex="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox Width="195" Height="250" Background="#8f9294" ItemsSource="{Binding Project_templates}" x:Name="template_list_box" SelectedIndex="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
