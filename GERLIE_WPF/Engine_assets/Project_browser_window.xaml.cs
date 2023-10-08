@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Linq;
+using System.Windows;
 
 namespace GERLIE_WPF.Engine_assets
 { 
@@ -7,6 +8,18 @@ namespace GERLIE_WPF.Engine_assets
         public Project_browser_window()
         {
             InitializeComponent();
+            Loaded += On_project_broswer_dialog_Loaded;
+        }
+        private void On_project_broswer_dialog_Loaded(object sender, RoutedEventArgs e)
+        {
+            Loaded -= On_project_broswer_dialog_Loaded;
+
+            if(!Class_for_retrieving_projects.Projects.Any())
+            {
+                retrieve_project_button.IsEnabled = false;
+                Retrieve_project.Visibility = Visibility.Hidden;
+                project_browser_Button_Click(create_project_button, new RoutedEventArgs());
+            }
         }
         private void project_browser_Button_Click(object sender, RoutedEventArgs e)                 //Project browser windows toggle instructions.
         {

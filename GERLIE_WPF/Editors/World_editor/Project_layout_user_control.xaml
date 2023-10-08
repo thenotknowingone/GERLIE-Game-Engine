@@ -70,8 +70,6 @@
                                                 Focusable="False"/>
                                         <Button Content="+"
                                                 Height="20"
-                                                Background="Transparent"
-                                                BorderBrush="Transparent"
                                                 HorizontalContentAlignment="Center"
                                                 IsEnabled="{Binding Is_active}"
                                                 Click="On_add_game_entity_Button_Click"/>
@@ -88,8 +86,6 @@
                                             <TextBlock Text="{Binding Name}"/>
                                             <Button Content="Remove"
                                                     Height="20"
-                                                    Background="Transparent"
-                                                    BorderBrush="Transparent"
                                                     HorizontalContentAlignment="Center" 
                                                     Command="{Binding Parent_scene.Remove_game_entity_command}"
                                                     CommandParameter="{Binding}"/>

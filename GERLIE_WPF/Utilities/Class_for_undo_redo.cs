@@ -37,9 +37,20 @@ namespace GERLIE_WPF.Utilities
             _undo_action = undo;
             _redo_action = redo;
         }
+
+        public Class_for_undo_redo_action(string property, object instance, object undo_value, object redo_value, string name) : 
+            this
+                (
+                    () => instance.GetType().GetProperty(property).SetValue(instance, undo_value),
+                    () => instance.GetType().GetProperty(property).SetValue(instance, redo_value),
+                    name
+                )
+        {
+        }
     }
     public class Class_for_undo_redo
     {
+        private bool _enable_add= true;
         private readonly ObservableCollection<IUndoRedo> _undo_list = new ObservableCollection<IUndoRedo>();
         private readonly ObservableCollection<IUndoRedo> _redo_list = new ObservableCollection<IUndoRedo>();
         public ReadOnlyObservableCollection<IUndoRedo> Redo_list
@@ -57,8 +68,11 @@ namespace GERLIE_WPF.Utilities
         }
         public void Add(IUndoRedo cmd)
         {
-            _undo_list.Add(cmd);
-            _redo_list.Clear();
+            if (_enable_add)
+            {
+                _undo_list.Add(cmd);
+                _redo_list.Clear();
+            }
         }
         public void Undo()
         {
@@ -66,7 +80,9 @@ namespace GERLIE_WPF.Utilities
             {
                 var cmd = _undo_list.Last();                                                                    //Picks the last object added to the undo list.
                 _undo_list.RemoveAt(_undo_list.Count - 1);                                                      //Removes last object added.
+                _enable_add = false;
                 cmd.Undo();                                                                                     //Calls Undo method from IUndoRedo interface.
+                _enable_add = true;
                 _redo_list.Insert(0, cmd);                                                                      //Adds the undone object to the redo list.
             }
         }
@@ -75,8 +91,10 @@ namespace GERLIE_WPF.Utilities
             if (_redo_list.Any())                                                                               
             {
                 var cmd = _redo_list.First();                                                                   
-                _redo_list.RemoveAt(0);                                                                         
-                cmd.Redo();                                                                                     
+                _redo_list.RemoveAt(0);
+                _enable_add = false;
+                cmd.Redo();
+                _enable_add = true;
                 _undo_list.Add(cmd);                                                                            
             }
         }

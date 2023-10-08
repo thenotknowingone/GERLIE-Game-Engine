@@ -1,13 +1,12 @@
 ﻿using GERLIE_WPF.Components;
 using GERLIE_WPF.Engine_assets;
+using GERLIE_WPF.Utilities;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace GERLIE_WPF.Editors
 {
-    /// <summary>
-    /// Interaction logic for Project_layout_user_control.xaml
-    /// </summary>
     public partial class Project_layout_user_control : UserControl
     {
         public Project_layout_user_control()
@@ -24,8 +23,32 @@ namespace GERLIE_WPF.Editors
 
         private void On_game_entity_Selection_Changed(object sender, SelectionChangedEventArgs e)
         {
-            var entity = (sender as ListBox).SelectedItems[0];
-            Class_for_game_entity.Instance.DataContext = entity;
+            Game_entity_user_control.Instance.DataContext = null;
+            var list_box = sender as ListBox;
+
+            if (e.AddedItems.Count > 0)
+            {
+                Game_entity_user_control.Instance.DataContext = (sender as ListBox).SelectedItems[0];
+            }
+
+            var new_selection = list_box.SelectedItems.Cast<Class_for_game_entity>().ToList();
+            var previous_selection = new_selection.Except(e.AddedItems.Cast<Class_for_game_entity>()).Concat(e.RemovedItems.Cast<Class_for_game_entity>()).ToList();
+
+            Class_for_central_data_structure.Undo_Redo.Add(new Class_for_undo_redo_action(
+                () =>
+                {
+                    list_box.UnselectAll();
+                    previous_selection.ForEach(x => (list_box.ItemContainerGenerator.ContainerFromItem(x) as ListBoxItem).IsSelected = true);
+                },
+                () =>
+                {
+                    list_box.UnselectAll();
+                    new_selection.ForEach(x => (list_box.ItemContainerGenerator.ContainerFromItem(x) as ListBoxItem).IsSelected = true);
+                },
+
+                "Selection Changed."
+
+                ));
         }
     }
 }

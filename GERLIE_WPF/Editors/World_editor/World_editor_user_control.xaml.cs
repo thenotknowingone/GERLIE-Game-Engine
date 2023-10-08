@@ -15,7 +15,6 @@ namespace GERLIE_WPF.Editors
             InitializeComponent();
             Loaded += On_world_editor_view_loaded;
         }
-
         private void On_world_editor_view_loaded(object sender, RoutedEventArgs e)
         {
             Loaded -= On_world_editor_view_loaded;
