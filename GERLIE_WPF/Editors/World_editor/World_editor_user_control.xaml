@@ -52,7 +52,28 @@
                               Height="5" 
                               HorizontalAlignment="Stretch" 
                               VerticalAlignment="Top"/>
-                <utl:Undo_redo_user_control DataContext="{Binding Undo_Redo}" Grid.Row="1"/>
+                <TabControl Grid.Row="1" Foreground="Black">
+                    <TabItem Header="History">
+                        <utl:Undo_redo_user_control DataContext="{Binding Undo_Redo}">
+                            <utl:Undo_redo_user_control.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FF1F222B" Offset="1"/>
+                                </LinearGradientBrush>
+                            </utl:Undo_redo_user_control.Background>
+                        </utl:Undo_redo_user_control>
+                    </TabItem>
+                    <TabItem Header="Log">
+                        <utl:Logger_user_control Foreground="White">
+                            <utl:Logger_user_control.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FF1F222B" Offset="1"/>
+                                </LinearGradientBrush>
+                            </utl:Logger_user_control.Background>
+                        </utl:Logger_user_control>
+                    </TabItem>
+                </TabControl>
             </Grid>
             <GridSplitter Grid.Column="1" 
                           Width="5" 

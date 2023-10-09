@@ -10,7 +10,7 @@ using System.Windows.Input;
 namespace GERLIE_WPF.Engine_assets
 {
     [DataContract(Name = "Game")]
-    public class Class_for_central_data_structure : View_model_base
+    class Class_for_central_data_structure : View_model_base
     {
         public static string Extension
         {
@@ -32,7 +32,7 @@ namespace GERLIE_WPF.Engine_assets
         
         private Class_for_scenes _current_scene;
         [DataMember]
-        public Class_for_scenes Current_scene
+        Class_for_scenes Current_scene
         {
             get => _current_scene;
             set
@@ -97,11 +97,12 @@ namespace GERLIE_WPF.Engine_assets
         }
         public void Unload()
         {
-
+            Undo_Redo.Reset();
         }   
         public static void Save(Class_for_central_data_structure project)
         {
             Class_for_serialization.To_file_method(project, project.Full_path);
+            Class_for_logger.Log(Message_type.Info, $"Project saved to {project.Full_path}");
         }
         [OnDeserialized]
         private void On_deserialized(StreamingContext context)

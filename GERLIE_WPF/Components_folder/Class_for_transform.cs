@@ -5,7 +5,7 @@ using System.Numerics;
 namespace GERLIE_WPF.Components_folder
 {
     [DataContract]
-    public class Class_for_transform : Class_for_component
+    class Class_for_transform : Class_for_component
     {
         private Vector3 _position;
         [DataMember]

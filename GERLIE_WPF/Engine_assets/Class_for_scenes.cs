@@ -10,7 +10,7 @@ using static System.Formats.Asn1.AsnWriter;
 namespace GERLIE_WPF.Engine_assets
 {
     [DataContract]
-    public class Class_for_scenes : View_model_base
+    class Class_for_scenes : View_model_base
     {
         private string _name;
         [DataMember]

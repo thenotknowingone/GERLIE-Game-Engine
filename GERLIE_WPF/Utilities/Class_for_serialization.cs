@@ -18,6 +18,8 @@ namespace GERLIE_WPF.Utilities
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
+                Class_for_logger.Log(Message_type.Error, $"Failed to serialize {instance} to {path}.");
+                throw;
             }
         }
         internal static T From_file_method<T>(string path)                                      //This code reads and deserializes an object of type T from a file specified by the path and returns it.
@@ -32,7 +34,8 @@ namespace GERLIE_WPF.Utilities
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-                return default;
+                Class_for_logger.Log(Message_type.Error, $"Failed to deserialize {path}.");
+                throw;
             }
         }
     }

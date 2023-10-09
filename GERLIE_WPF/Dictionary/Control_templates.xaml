@@ -4,6 +4,6 @@
                     xmlns:local="clr-namespace:GERLIE_WPF.Dictionary">
     <Style TargetType="{x:Type TextBox}" x:Key="Text_box_style"/>
     <Style TargetType="{x:Type TextBox}" x:Key="{x:Type TextBox}" BasedOn="{StaticResource Text_box_style}">
-        <EventSetter Event="KeyDown" Handler="On_text_box_KeyDown"/>
+        <EventSetter Event="KeyDown" Handler="On_text_box_KeyDown"/> 
     </Style>
 </ResourceDictionary>

@@ -3,8 +3,12 @@ using System.Runtime.Serialization;
 
 namespace GERLIE_WPF.Components
 {
+    interface IMS_component
+    {
+
+    }
     [DataContract]
-    public class Class_for_component : View_model_base
+    abstract class Class_for_component : View_model_base
     {
         [DataMember]
         public Class_for_game_entity Owner
@@ -17,5 +21,10 @@ namespace GERLIE_WPF.Components
             Debug.Assert(owner != null);
             Owner = owner;
         }
+    }
+
+    abstract class MS_component<T> : View_model_base, IMS_component where T : Class_for_component
+    {
+
     }
 }

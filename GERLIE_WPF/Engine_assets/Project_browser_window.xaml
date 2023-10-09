@@ -12,8 +12,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
-            <ToggleButton Content="Open a Project " x:Name="retrieve_project_button" FontSize="35" FontFamily="Play and Win Demo" BorderBrush="{x:Null}" Foreground="#FF1F222B" Background="{x:Null}"  Click="project_browser_Button_Click" IsChecked="True"/>
-            <ToggleButton Content="New Project" x:Name="create_project_button" FontSize="35" FontFamily="Play and Win Demo" Margin="30, 0, 0, 0" BorderBrush="{x:Null}" Foreground="#FF1F222B" Background="{x:Null}" Click="project_browser_Button_Click" IsChecked="False"/>
+            <ToggleButton Content="Open a Project " x:Name="retrieve_project_button" FontSize="35" FontFamily="Play and Win Demo" BorderBrush="{x:Null}" Foreground="#FF1F222B" Background="{x:Null}"  Click="Project_browser_Button_Click" IsChecked="True"/>
+            <ToggleButton Content="New Project" x:Name="create_project_button" FontSize="35" FontFamily="Play and Win Demo" Margin="30, 0, 0, 0" BorderBrush="{x:Null}" Foreground="#FF1F222B" Background="{x:Null}" Click="Project_browser_Button_Click" IsChecked="False"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="1" x:Name="browser_content">
             <local:Retrieve_project_user_control x:Name="Retrieve_project"/>

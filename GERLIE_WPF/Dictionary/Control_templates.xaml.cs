@@ -11,7 +11,7 @@ namespace GERLIE_WPF.Dictionary
             var text_box = sender as TextBox;
             var exp = text_box.GetBindingExpression(TextBox.TextProperty);
 
-            if (exp != null) 
+            if (exp == null) 
                 return;
 
             if (e.Key == Key.Enter)

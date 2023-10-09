@@ -79,7 +79,7 @@
                             <ListBox ItemsSource="{Binding Game_entities}" 
                                      IsEnabled="{Binding Is_active}"
                                      SelectionMode="Extended"
-                                     SelectionChanged="On_game_entity_Selection_Changed">
+                                     SelectionChanged="On_game_entity_list_box_Selection_Changed">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">

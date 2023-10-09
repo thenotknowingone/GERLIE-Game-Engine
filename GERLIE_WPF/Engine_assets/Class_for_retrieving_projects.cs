@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Collections.ObjectModel;
 using System.Linq;
 using GERLIE_WPF.Utilities;
+using System.Windows.Shapes;
 
 namespace GERLIE_WPF.Engine_assets
 {
@@ -123,6 +124,8 @@ namespace GERLIE_WPF.Engine_assets
             catch (Exception e)
             {
                 Debug.WriteLine(e.Message);
+                Class_for_logger.Log(Message_type.Error, $"Failed to read project data.");
+                throw;
             }
         }
 

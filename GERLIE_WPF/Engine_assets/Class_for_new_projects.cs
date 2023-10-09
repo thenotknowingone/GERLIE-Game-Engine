@@ -180,7 +180,8 @@ namespace GERLIE_WPF.Engine_assets
             catch (Exception ex) 
             { 
                 Debug.WriteLine(ex.Message);
-                return string.Empty;
+                Class_for_logger.Log(Message_type.Error, $"Failed to create {Project_name}.");
+                throw;
             }
         }
         public Class_for_new_projects()                                                                                                         //This code defines a constructor for the Class_for_new_projects class, which initializes the Project_templates property with a read-only view of a private _project_templates collection. It then attempts to find and deserialize Class_for_project_templates objects from files named "template.xml" within a specified directory _template_path, with debugging checks in place, and logs any exceptions.
@@ -207,6 +208,8 @@ namespace GERLIE_WPF.Engine_assets
             catch(Exception ex)
             {
                 Debug.WriteLine(ex.Message);
+                Class_for_logger.Log(Message_type.Error, $"Failed to read project templates.");
+                throw;
             }
         }
     }

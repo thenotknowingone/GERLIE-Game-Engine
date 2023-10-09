@@ -18,10 +18,10 @@ namespace GERLIE_WPF.Engine_assets
             {
                 retrieve_project_button.IsEnabled = false;
                 Retrieve_project.Visibility = Visibility.Hidden;
-                project_browser_Button_Click(create_project_button, new RoutedEventArgs());
+                Project_browser_Button_Click(create_project_button, new RoutedEventArgs());
             }
         }
-        private void project_browser_Button_Click(object sender, RoutedEventArgs e)                 //Project browser windows toggle instructions.
+        private void Project_browser_Button_Click(object sender, RoutedEventArgs e)                 //Project browser windows toggle instructions.
         {
             if (sender == retrieve_project_button)
             {
