@@ -53,7 +53,7 @@ namespace GERLIE_WPF.Engine_assets
     }
     class Class_for_new_projects : View_model_base                                                                                              //Class for new projects inheriting from INPC VM.
     {
-        private readonly string _template_path = @"E:\Programming Projects\GERLIE\GERLIE_WPF\Templates";
+        private readonly string _template_path = @"E:\Programming Projects\gerlie\GERLIE_WPF\Templates";
         private string _project_name = "New project";                                                                                           //Default project name.
         public string Project_name                                                                                                              //Accepts changes in project name then triggers OPC.
         {

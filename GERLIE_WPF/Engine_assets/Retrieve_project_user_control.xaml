@@ -49,7 +49,7 @@
             <Button Content="Exit" Width="96" IsCancel="True"/>
         </StackPanel>   
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 78, 30, 0 ">
-            <TextBlock Text="GERLIE" FontFamily="District Regular" FontSize="45" Foreground="#8f9294"/>
+            <TextBlock Text="gerlie" FontFamily="District Regular" FontSize="45" Foreground="#8f9294"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 0, 30, 0 ">
             <TextBlock Text="Game Engine" FontSize="10" Foreground="#8f9294"/>
